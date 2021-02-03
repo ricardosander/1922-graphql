@@ -37,3 +37,14 @@ Os Schemas definiem os tipos de dados e o que podemos fazer (Query, Mudations, e
 Se quisermos separar schemas dentro do GraphQL, podemos definir os tipos em diferentes módulos, porém, precisamos fazer um merge deles para passá-lo ao Apollo Server. Isso pq precisamos mergear a String que define os tipos em uma Stirng única. Podemos fazer isso com a função mergeTypeDefs do graphql-tools.
 
 Já os resolvers, podemos defini-los separadamente e apenas passá-los no array de resolvers.
+
+# Resolvers
+
+O resolver deve ter o mesmo nome da query que ele resolve.
+
+Parâmetros dos resolvers (em ordem):
+
+- parent/root: resultado da chamada do nível anterior da query
+- args: argumentos passados para o resolver pela query
+- context: um objeto com o contexto para GraphQL, com dados sobre a conexão, permissões de usuário, etc.
+- info: representação em árvore da query ou mutation.
